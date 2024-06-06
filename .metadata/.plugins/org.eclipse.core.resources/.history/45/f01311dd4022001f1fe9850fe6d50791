@@ -1,0 +1,25 @@
+package education.jdbc1;
+
+import java.util.Collection;
+
+import it.education.dao.*;
+import it.education.entity.*;
+
+public class DaoEnhancementExampleMain {
+
+	public static void main(String[] args) {
+		
+		EnhancedCourseDao enhancedDaoRef = new EnhancedCourseDao();
+		Collection<Course> providersWithMatchingCourseName = enhancedDaoRef.retrieveAllCourseByCourseName("Java");
+		
+		int size = providersWithMatchingCourseName.size();
+		if(size != 0) {
+		for(Course customerRef : providersWithMatchingCourseName)
+			System.out.println(customerRef);
+		}
+		else {
+			System.out.println("No provider found with the given course");
+		}
+	}
+
+}

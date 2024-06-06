@@ -1,0 +1,9 @@
+package it.eduction.dao;
+
+public class CourseWebDao {
+
+	public CourseWebDao() {
+		
+	}
+
+}

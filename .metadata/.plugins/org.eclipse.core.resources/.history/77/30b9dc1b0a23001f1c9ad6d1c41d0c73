@@ -1,0 +1,11 @@
+package example.beans;
+
+public class UserValidator {
+
+	public static boolean isValid(User currentUserRef) {
+		boolean success = false;
+//		code to interact with DB and return boolean value
+		String sqlQuery = "select * from app_users where user_id = ? and user_pwd = ?";
+		return success;
+	}
+}

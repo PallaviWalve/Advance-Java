@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="cyan">
+	<h2>Select Your Course</h2>
+	<form action = "Course" method="post">
+		<pre>
+		<!--  
+			<label for="course"><b>Choose a course:</b></label>
+				<select name="course" id="courses">
+  				<option value="Java">Java</option>
+  				<option value="HTML">HTML</option>
+  				<option value="Advance Java">Advance Java</option>
+  				<option value="Core Java">Core Java</option>
+		</select>-->
+		Course ID: 	     <input type="text" name="course_id"/>
+		
+		Course Name: 	 <input type="text" name="course_name"/>
+			
+		Course Provider: <input type="text" name="course_provider"/>
+		
+		Course Duration: <input type="text" name="course_duration"/>
+		
+		Course Fees:     <input type="text" name="course_fees"/> 
+			
+			             <input type="submit" value = "SUBMIT"/>
+			
+		</pre>
+	</form>
+
+</body>
+</html>

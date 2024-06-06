@@ -1,0 +1,5 @@
+package it.education.dao;
+
+public class DaoInterface {
+
+}

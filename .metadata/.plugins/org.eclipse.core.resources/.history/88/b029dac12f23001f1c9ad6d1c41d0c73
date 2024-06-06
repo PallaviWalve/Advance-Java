@@ -1,0 +1,37 @@
+package example.beans;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import example.utils.JdbcUtils;
+import it.eduction.entity.Course;
+
+public class CourseValidator {
+
+	public static boolean isValid(Course currentCourseRef) {
+		boolean success = false;
+//		code to interact with DB and return boolean value
+		String sqlQuery = "select * from app_users where user_id = ? and user_pwd = ?"; //we get 1 record or zero record
+		try (
+			Connection dbConnection = JdbcUtils.buildConnection();
+			PreparedStatement pstmt = dbConnection.prepareStatement(sqlQuery);
+		){
+			String currentCourseId = currentCourseRef.getCourse_id();
+			String currentCourseName = currentUserRef.getCourse_name();
+			String currentUserPassword = currentUserRef.getPassword();
+			pstmt.setString(1, currentUserName);
+			pstmt.setString(2, currentUserPassword);
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next())  //check if user is valid
+				success = true;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return success;
+	}
+}
+
+

@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="cyan">
+	<h1>Demonstrating JSP tags</h1>
+	<ol>
+		<li>page</li>
+	</ol>
+
+</body>
+</html>

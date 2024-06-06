@@ -1,0 +1,58 @@
+package it.eduction.servlets;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+import example.beans.CourseValidator;
+import example.beans.User;
+import example.beans.UserValidator;
+import it.eduction.entity.Course;
+
+/**
+ * Servlet implementation class CreateCourseServlet
+ */
+@WebServlet(urlPatterns = {"/create_course"},
+name = "myCreateCourseServlet"
+)
+public class CreateCourseServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String courseID = request.getParameter("course_id");
+		int id=Integer.parseInt(courseID);
+		
+		String courseName = request.getParameter("course_name");
+		
+		String courseProvider = request.getParameter("course_provider");
+		
+		String courseDuration = request.getParameter("course_duration");
+		int duration=Integer.parseInt(courseDuration);
+		
+		String courseFees = request.getParameter("course_fees");
+		int fees=Integer.parseInt(courseFees);
+		
+		Course currentCourse = new Course(id,courseName,courseProvider,duration,fees);
+		
+		boolean valid = CourseValidator.isValid(currentCourse);
+		
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

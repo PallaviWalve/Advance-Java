@@ -1,0 +1,237 @@
+JDBC
+	JDBC stands for Java to Database Connectivity.
+	Every application has 2 paradigms:
+		Front End and Back End
+		To bridge the gap between Front End (Java Based) and 
+		Back End (Database), there is some API used called
+		as JDBC.
+		
+	Like JDBC, every DB Vendor also provides its own API
+	which is known as Vendor Specific API.
+	
+	It simplifies access for the client programs which want
+	to interact with Database.
+	
+	Since both the APIs are written as per their own standards,
+	there are conflicts between them. They are not compatible
+	with each other.
+	
+	This mismatch is resolved by some interpreter known as 
+	Driver.
+	
+	Driver is a program that converts JDBC calls into some
+	format which is compatible with the DB Vendor.
+	
+	Generally, in JDBC there are 4 types of drivers.
+	
+	1. Type 1
+	2. Type 2
+	3. Type 3
+	4. Type 4
+	
+	Type 1:
+		It is JDBC ODBC Bridge.
+		It uses 3rd party library: ODBC 
+								(Open Database Connectivity)
+								  (by Microsoft)
+		It is the slowest.
+		It is platform dependent.
+		On every client machine, ODBC configuration setup is must.
+		
+		Therefore it is used just for testing purpose or in 
+		case of small and simple applications.
+		
+		Not recommended for large scale applications.	
+		
+	Type 2:
+		It is Native API, Partly Java Driver.
+		It uses a combination of implementation from Java and
+		Database.
+		It does not use any 3rd party library.
+		Performs direct conversion.
+		
+		It is faster than Type 1.
+		It is platform independent.	
+		Since it uses database specific native API, the relevant 
+		API must be installed on every client machine.
+		
+	Type 3:
+		It is Net Protocol, Intermediate DB Access Server.
+		It allows Java application to interact with multiple
+		database servers.
+		
+		It uses some middleware: 		
+			Intermediate DB Access Server	
+	
+	Type 4:
+		It is Vendor Specific, Pure Java Driver.
+		Every Database Vendor provides its own driver for
+		its corresponding database. 
+		
+		It is completely written as per Java standards.	
+		
+		It makes use of TCP/IP socket connections to have
+		interaction.	
+		
+		It is the fastest.
+		It is platform independent.
+		It does not require any configuration setup on client
+		machine.
+		
+		Therefore, it is highly recommended for Large Scale
+		Applications and Production Environment as well.
+		
+	JDBC Core API:
+		The core API of JDBC belongs to java.sql package. 
+		It mainly consists of following:
+			1. DriverManager
+			2. Driver
+			3. Connection
+			4. Statement
+			5. PreparedStatement
+			6. CallableStatement
+			7. ResultSet 
+		
+	Steps of JDBC Application:
+		1. Load the Driver
+		2. Establish Connection
+		3. Obtain Some Statement
+		4. Execute SQL Query
+		5. In case of SELECT query, obtain ResultSet and
+		   perform navigation.
+	
+	Load the Driver:
+		Every JDBC Driver is implemented using some class
+		which is called as Driver implementation class.
+		It needs to get loaded for establishing a Connection.
+		This is done using 'forName()' static method of 'Class'
+		class from 'java.lang' package.	   
+		
+	Establish Connection:
+		To perform any operation with Database, first it is
+		necessary to get connected with it.
+		
+		This can be done either by using DriverManager's 
+		getConnection() or Driver's connect() method.
+		
+	Obtain Statement:
+		Once connected with Database, it is possible to fire
+		SQL queries.
+		
+		In the context of JDBC, SQL queries are of 2 types:
+			Simple Queries (Queries without Parameters)
+			Parameterized Queries
+			
+		To execute simple queries, 'Statement' is used.
+		It is obtained using createStatement() method of
+		'Connection' interface. 
+		
+	Execute SQL Query:
+		Once 'Statement' is obtained, it can be used to execute
+		SQL queries.
+		
+		In case of SELECT query, executeQuery() method is used.
+		It returns ResultSet on which navigation is to 
+		be performed.
+		
+	Perform Navigation:
+		ResultSet is the representation of the data on client
+		side.
+		It maintains data in tabular format just like table on
+		database side.
+		
+		It contains rows and columns where every row has a 
+		record position and every column has a column index;
+		staring both of them from 1.
+		
+		Apart from the actual record positions, there are 2
+		additional positions:
+			Before First and After Last.
+			
+		By default, the cursor pointer points to 
+		Before First.
+		
+		To start reading the information, it must move in
+		forward direction.
+		
+		This is done using next() method of 'ResultSet'
+		interface.
+		
+		Every column has index starting with 1 and it 
+		increments by 1 while moving from left to right.
+		
+		The column index depends upon the actual query;
+		rather than the original table design.
+		
+		To read the data, ResultSet interface provides
+		getXXX methods.
+		
+		E.g.
+			To read 'int' use getInt(), to read 'String'
+			use getString().
+			
+JDBC Standard Practices:
+	1. Open the resources e.g. Connection, Statement, ResultSet
+		using try-with-resources so that they will get closed
+		automatically.
+		
+	2. Decouple the code for establishing a Connection using 
+		a separate Java class.
+		
+	3. Use Auto-loading of JDBC driver feature.
+	
+	4. Implement DAO (Data Access Object) pattern to handle
+		CRUD operations (Create Retrieve Update Delete)
+		
+Parameterized Queries:
+	A query can have one or many parameters. The values
+	for these parameters are to be decided at runtime.
+	
+	However, JDBC allows to build a query string with unknown
+	parameters and set the values for them at runtime.
+	
+	This is possible using PreparedStatement. 
+	It builds the query string at the beginning and maintains
+	that query in a cache.
+	
+	These unknown parameters are denoted by '?'.
+	
+	E.g.
+		Select * from emp where empno = ?
+		Select * from emp where sal between ? and ?
+		
+	These unknown parameters have index, starting with 1,
+	incrementing by 1, moving from left to right.
+	
+	Once the query is built, before executing it, it is 
+	necessary to substitute values in place of unknown 
+	parameters. This is done using setXXX methods of
+	PreparedStatement interface.
+	
+	Performing DML Operations:
+		DML operations involve INSERT, UPDATE and DELETE
+		queries.
+		
+		Since there is no data retrieval, there is no need
+		of ResultSet. Hence executeQuery() method is not
+		used in this case.
+		
+		However, to make JDBC call, some method needs to be
+		invoked.
+		
+		It is executeUpdate() which returns 'int'.
+		The returned value indicates update count.
+		
+		
+		 
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		

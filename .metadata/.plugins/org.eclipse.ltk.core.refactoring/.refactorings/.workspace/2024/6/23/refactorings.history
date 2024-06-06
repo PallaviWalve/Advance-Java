@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Online_IT_Course&apos; to &apos;JDBC_TODOs&apos;" description="Rename resource &apos;Online_IT_Course&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/Online_IT_Course" name="JDBC_TODOs" stamp="1717481284650" updateReferences="true"/>
+</session>

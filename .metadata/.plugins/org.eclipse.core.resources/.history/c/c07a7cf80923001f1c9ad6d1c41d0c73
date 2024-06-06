@@ -1,0 +1,10 @@
+package example.beans;
+
+public class UserValidator {
+
+	public static boolean isValid(User currentUserRef) {
+		boolean success = false;
+//		code to interact with DB and return boolean value
+		return success;
+	}
+}

@@ -1,0 +1,17 @@
+package education.jdbc1;
+
+import it.education.dao.*;
+import it.education.*;
+import it.education.entity.*;
+
+public class UpdateCourseExampleMain {
+public static void main(String[] args) {
+		
+		DaoInterface<Course, Integer> daoRef = new EducationDao();
+		Course customerRef = daoRef.retrieveOne(6);
+		courseRef.setName("CPP");
+		courseRef.setAddress("Prepcrazy");
+		daoRef.update(courseRef);
+		
+	}
+}
