@@ -1,3 +1,9 @@
 INDEX VERSION 1.134
+D:\Pallavi\JDBC_Project-20240604T042002Z-001\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\581426086.index
+\Spring_Mvc_Project\src\main\resources
+D:\Pallavi\JDBC_Project-20240604T042002Z-001\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2712950051.index
+\Spring_Mvc_Project\src\main\resources
 D:\Pallavi\JDBC_Project-20240604T042002Z-001\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3223866381.index
 \Web_Project\src\main\java
+D:\Pallavi\JDBC_Project-20240604T042002Z-001\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\398041854.index
+\Spring_Mvc_Project\src\main\resources

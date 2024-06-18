@@ -6,6 +6,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import entertainment.entity.annotations.Movie;
+import one_to_many.unidirectional.entity.CricketPlayer;
+import one_to_many.unidirectional.entity.CricketTeam;
 import one_to_one.unidirectional.entity.Employee;
 import one_to_one.unidirectional.entity.Passport;
 
@@ -26,10 +28,14 @@ public class HibernateUtils {
 		Class<Movie> entityType = Movie.class;
 		Class<Passport> entityType2 = Passport.class;
 		Class<Employee> entityType3 = Employee.class;
+		Class<CricketPlayer> entityType4 = CricketPlayer.class;
+		Class<CricketTeam> entityType5 = CricketTeam.class;
 		
 		hibernateConfig.addAnnotatedClass(entityType);
 		hibernateConfig.addAnnotatedClass(entityType2);
 		hibernateConfig.addAnnotatedClass(entityType3);
+		hibernateConfig.addAnnotatedClass(entityType4);
+		hibernateConfig.addAnnotatedClass(entityType5);
 		
 		
 		SessionFactory factory = hibernateConfig.buildSessionFactory();

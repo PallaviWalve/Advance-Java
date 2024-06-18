@@ -1,9 +1,0 @@
-package example.beans;
-
-public class UserValidator {
-
-	public UserValidator() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

@@ -14,7 +14,7 @@ public class RecordInsertionExampleMain {
 				SessionFactory sf = HibernateUtils.getSessionFactory();
 				Session sessionRef = sf.openSession();
 			){
-			Movie movieObj = new Movie(106, "Runway 34", "Thriller", 2022);
+			Movie movieObj = new Movie(109, "Predator", "Horror", 1997);
 			Transaction tx = sessionRef.beginTransaction();
 			sessionRef.persist(movieObj);
 			tx.commit();

@@ -1,9 +1,0 @@
-package it.eduction.dao;
-
-public class CourseWebDao {
-
-	public CourseWebDao() {
-		// TODO Auto-generated constructor stub
-	}
-
-}
